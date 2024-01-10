@@ -3,8 +3,14 @@ const express = require('express'),
     uuid = require('uuid');
 const mongoose = require('mongoose');
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const Models = require('./models.js')
+
+let auth = require('./auth')(app);
+
+const passport = require('passport');
+require('./passport');
 
 const Movies = Models.Movie;
 const Users = Models.Users;
@@ -18,7 +24,7 @@ app.get('/', (request, response)=>{ //request route
 });  
 
 //Read movies
-app.get('/movies', async (req, res) => {  
+app.get('/movies', passport.authenticate('jwt', {session: false}), async (req, res) => {  
     Movies.find()  //read all movies
       .then((movies) => {res.status(201).json(movies)})
       .catch((err) => {
@@ -27,10 +33,42 @@ app.get('/movies', async (req, res) => {
       });
 });
 
-// Update user information
-app.put('/movies/:director', (req, res) => {
+//Read users
+app.get('/users', passport.authenticate('jwt', {session: false}), async (req, res) => {  
+  Users.find()  //read all users
+    .then((movies) => {res.status(201).json(users)})
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
 
-  });
+//Create new user
+app.post('/users', passport.authenticate('jwt', {session: false}), async (req, res) => {
+  await Users.findOne({ Username: req.body.Username })
+    .then((user) => {
+      if (user) {
+        return res.status(400).send(req.body.Username + 'already exists');
+      } else {
+        Users
+          .create({
+            Username: req.body.Username,
+            Password: req.body.Password,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday
+          })
+          .then((user) =>{res.status(201).json(user) })
+        .catch((error) => {
+          console.error(error);
+          res.status(500).send('Error: ' + error);
+        })
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
+});
 
 app.listen(8080, () => {
   console.log('Your app is listening on port 8080');
