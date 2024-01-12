@@ -7,7 +7,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const Models = require('./models.js')
 
-let auth = require('./auth')(app);
+const cors = require('cors');
+app.use(cors());
+let auth= require('./auth')(app);
 
 const passport = require('passport');
 require('./passport');
@@ -24,7 +26,7 @@ app.get('/', (request, response)=>{ //request route
 });  
 
 //Read ALL movies
-app.get('/movies', async (req, res) => {  
+app.get('/movies', passport.authenticate('jwt', {session: false}), async (req, res) => {  
     Movies.find()  //read all movies
       .then((movies) => {res.status(201).json(movies)})
       .catch((err) => {
@@ -34,7 +36,7 @@ app.get('/movies', async (req, res) => {
 });
 
 //Read data about movie by title 
-app.get('/movies/:title',  (req, res) => {
+app.get('/movies/:title', passport.authenticate('jwt', {session: false}), (req, res) => {
    Movies.findOne({ title: req.params.title })
     .then((movie) => {
       res.json(movie);
@@ -46,7 +48,7 @@ app.get('/movies/:title',  (req, res) => {
 });
 
 //Read users
-app.get('/users', async(req, res) => {  
+app.get('/users', passport.authenticate('jwt', {session: false}), async(req, res) => {  
   Users.find()  //read all users
     .then((users) => {res.status(201).json(users)})
     .catch((err) => {
@@ -56,8 +58,8 @@ app.get('/users', async(req, res) => {
 });
 
 // Get a user by username
-app.get('/users/:Username', async(req, res) => {
-  await Users.findOne({ Username: req.params.Username })
+app.get('/users/:username', passport.authenticate('jwt', {session: false}), async(req, res) => {
+  await Users.findOne({ username: req.params.username })
     .then((user) => {
       res.json(user);
       console.log(user);
@@ -68,32 +70,32 @@ app.get('/users/:Username', async(req, res) => {
     });
 });
 
-//Create new user
-// app.post('/users', passport.authenticate('jwt', {session: false}), async (req, res) => {
-//   await Users.findOne({ Username: req.body.Username })
-//     .then((user) => {
-//       if (user) {
-//         return res.status(400).send(req.body.Username + 'already exists');
-//       } else {
-//         Users
-//           .create({
-//             Username: req.body.Username,
-//             Password: req.body.Password,
-//             Email: req.body.Email,
-//             Birthday: req.body.Birthday
-//           })
-//           .then((user) =>{res.status(201).json(user) })
-//         .catch((error) => {
-//           console.error(error);
-//           res.status(500).send('Error: ' + error);
-//         })
-//       }
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//       res.status(500).send('Error: ' + error);
-//     });
-// });
+// Create new user
+app.post('/users', async (req, res) => {
+  await Users.findOne({ Username: req.body.Username })
+    .then((user) => {
+      if (user) {
+        return res.status(400).send(req.body.Username + ':' + 'already exists');
+      } else {
+        Users
+          .create({
+            Username: req.body.Username,
+            Password: req.body.Password,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday
+          })
+          .then((user) =>{res.status(201).json(user) })
+        .catch((error) => {
+          console.error(error);
+          res.status(500).send('Error: ' + error);
+        })
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
+});
 
 app.listen(8080, () => {
   console.log('Your app is listening on port 8080');
