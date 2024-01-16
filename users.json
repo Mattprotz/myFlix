@@ -1,0 +1,7 @@
+{"_id":{"$oid":"659c7e41a56d33beed90a070"},"username":"user1","email":"user1@example.com","password":"password1","birthday":{"$date":"1985-02-19T00:00:00Z"}}
+{"_id":{"$oid":"659c7e50a56d33beed90a071"},"username":"user2","email":"user2@example.com","password":"password2","birthday":{"$date":"1990-05-28T00:00:00Z"}}
+{"_id":{"$oid":"659c7e5ba56d33beed90a072"},"username":"user3","email":"user3@example.com","password":"password3","birthday":{"$date":"1982-11-15T00:00:00Z"}}
+{"_id":{"$oid":"659c7e6fa56d33beed90a073"},"username":"user4","email":"user4@example.com","password":"password4","birthday":{"$date":"1978-08-03T00:00:00Z"}}
+{"_id":{"$oid":"659c7e87a56d33beed90a074"},"username":"user5","email":"user5@example.com","password":"password5","birthday":{"$date":"1995-03-22T00:00:00Z"},"Bio":"user5 has always been known as user5, but recently has been feeling the constraints of their own name"}
+{"_id":{"$oid":"65a0748d5e60d24bdab62397"},"Username":"Matthew.proteau","Email":"matthew.proteau@gmail.com","Password":"L33thax+","Birthday":{"$date":"2000-04-12T00:00:00Z"},"FavoriteMovies":[],"__v":0}
+{"_id":{"$oid":"65a1c18138d115f8d6c70942"},"Username":"MatthewP","Email":"matthewp@gmail.com","Password":"L33thax+","Birthday":{"$date":"2000-04-12T00:00:00Z"},"FavoriteMovies":[],"__v":0}

@@ -1,0 +1,9 @@
+{"_id":{"$oid":"659c753fa56d33beed90a066"},"title":"Inception","director":{"name":"Christopher Nolan","birthDate":"July 30, 1970"},"genre":"Sci-Fi","releaseYear":2010}
+{"_id":{"$oid":"659c7851a56d33beed90a067"},"title":"The Dark Knight","director":{"name":"Christopher Nolan","birthDate":"July 30, 1970"},"genre":"Action","releaseYear":2008,"Rating":"9/10"}
+{"_id":{"$oid":"659c7bada56d33beed90a068"},"title":"Pulp Fiction","director":{"name":"Quentin Tarantino","birthDate":"March 27, 1963"},"genre":"Crime","releaseYear":1994}
+{"_id":{"$oid":"659c7bc5a56d33beed90a069"},"title":"Reservoir Dogs","director":{"name":"Quentin Tarantino","birthDate":"March 27, 1963"},"genre":"Crime","releaseYear":1992}
+{"_id":{"$oid":"659c7bdba56d33beed90a06a"},"title":"The Shawshank Redemption","director":{"name":"Frank Darabont","birthDate":"January 28, 1959"},"genre":"Drama","releaseYear":1994}
+{"_id":{"$oid":"659c7c32a56d33beed90a06c"},"title":"The Matrix","director":{"name":"The Wachowskis","birthDate":["Lana Wachowski: June 21, 1965","Lilly Wachowski: December 29, 1967"]},"genre":"Sci-Fi","releaseYear":1999}
+{"_id":{"$oid":"659c7c46a56d33beed90a06d"},"title":"Blade Runner","director":{"name":"Ridley Scott","birthDate":"November 30, 1937"},"genre":"Sci-Fi","releaseYear":1982}
+{"_id":{"$oid":"659c7c51a56d33beed90a06e"},"title":"The Godfather","director":{"name":"Francis Ford Coppola","birthDate":"April 7, 1939"},"genre":"Crime","releaseYear":1972}
+{"_id":{"$oid":"659c7c5ea56d33beed90a06f"},"title":"The Departed","director":{"name":"Martin Scorsese","birthDate":"November 17, 1942"},"genre":"Crime","releaseYear":2006}
