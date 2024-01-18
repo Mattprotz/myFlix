@@ -1,13 +1,12 @@
-const express = require('express'),
-    bodyParser = require('body-parser'),
-    uuid = require('uuid');
+const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
-
-const Models = require('./models.js')
-
 cors = require('cors');
+const { check, validationResult } = require('express-validator');
+const Models = require('./models.js')
+require('dotenv').config()
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cors());
 let auth= require('./auth')(app);
 let allowedOrigins = ['http://localhost:8080/']
@@ -15,15 +14,13 @@ let allowedOrigins = ['http://localhost:8080/']
 const passport = require('passport');
 require('./passport');
 
-const { check, validationResult } = require('express-validator');
-
 const Movies = Models.Movie;
 const Users = Models.User;
 
-// mongoose.connect('mongodb+srv://L33thax420:L33thax420@clusterflix.xakkrlo.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect('process.env.CONNECTION_URI', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.CONNECTION_URI).then(()=> console.log('connected'));
+// mongoose.connect('process.env.CONNECTION_URI', { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use(cors({
   origin: (origin, callback)=>{
