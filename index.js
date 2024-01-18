@@ -82,6 +82,7 @@ app.get('/users/:username', passport.authenticate('jwt', {session: false}), asyn
     });
 });
 
+
 // Create new user
 app.post('/users',[ check('Username', 'Username is required').isLength({min: 5}),
 check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
