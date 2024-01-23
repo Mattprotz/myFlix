@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-cors = require('cors');
+const cors = require('cors');
+app.use(cors());
 const { check, validationResult } = require('express-validator');
 const Models = require('./models.js')
-require('dotenv').config()
+require('dotenv').config();
+
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
 let auth= require('./auth')(app);
 let allowedOrigins = ['http://localhost:8080/']
 
@@ -17,8 +18,11 @@ require('./passport');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect(process.env.CONNECTION_URI).then(()=> console.log('connected'));
-// mongoose.connect('process.env.CONNECTION_URI', { useNewUrlParser: true, useUnifiedTopology: true });
+console.log('users');
+
+mongoose.connect(process.env.CONNECTION_URI).then(()=> console.log('connected to MongoDB'))
+.catch(err => console.error('Error connecting to MongoDB' + (err)+ (process.env.CONNECTION_URI)))
+// mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(express.json());
 
@@ -89,7 +93,7 @@ check('Username', 'Username contains non alphanumeric characters - not allowed.'
 check('Password', 'Password is required').not().isEmpty(),
 check('Email', 'Email does not appear to be valid').isEmail()], async (req, res) => {
   let hashedPassword = Users.hashPassword(req.body.Password);
-  await Users.findOne({ Username: req.body.Username })
+   await Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
         return res.status(400).send(req.body.Username + ':' + 'already exists');
@@ -97,7 +101,7 @@ check('Email', 'Email does not appear to be valid').isEmail()], async (req, res)
         Users
           .create({
             Username: req.body.Username,
-            Password: hashedPassword,
+            Password: req.body.Password,
             Email: req.body.Email,
             Birthday: req.body.Birthday
           })
@@ -114,7 +118,8 @@ check('Email', 'Email does not appear to be valid').isEmail()], async (req, res)
     });
 });
 
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
+const port = 8080;
 app.listen(port, '0.0.0.0',() => {
  console.log('Listening on Port ' + port);
 });
