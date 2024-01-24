@@ -42,7 +42,7 @@ app.get('/', (request, response)=>{ //request route
 });  
 
 //Read ALL movies
-app.get('/movies', passport.authenticate('jwt', {session: false}), async (req, res) => {  
+app.get('/movies', async (req, res) => {  
     Movies.find()  //read all movies
       .then((movies) => {res.status(201).json(movies)})
       .catch((err) => {
@@ -52,7 +52,7 @@ app.get('/movies', passport.authenticate('jwt', {session: false}), async (req, r
 });
 
 //Read data about movie by title 
-app.get('/movies/:title', passport.authenticate('jwt', {session: false}), (req, res) => {
+app.get('/movies/:title', (req, res) => {
    Movies.findOne({ title: req.params.title })
     .then((movie) => {
       res.json(movie);
