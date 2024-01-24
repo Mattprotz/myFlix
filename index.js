@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 let auth= require('./auth')(app);
 let allowedOrigins = ['http://localhost:8080/',
-  
+  'http://localhost:1234'
 ]
 
 const passport = require('passport');
