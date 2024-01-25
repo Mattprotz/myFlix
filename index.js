@@ -52,7 +52,17 @@ app.get('/movies', async (req, res) => {
 });
 
 app.get('/gracie', async (req, res) => {  
-  res.sendFile('/gracie.html')
+    res.send(`
+    <div>
+      Hey everyone love you 
+      _.---._    /\\
+      ./'       "--`\//
+    ./              o \          .-----.
+  /./\  )______   \__ \        ( help! )
+  ./  / /\ \   | \ \  \ \       /`-----'
+    / /  \ \  | |\ \  \7--- ooo ooo ooo ooo ooo ooo
+    </div>
+    `) //response
 });
 
 //Read data about movie by title 
