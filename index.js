@@ -2,16 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
-app.use(cors());
+const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator');
 const Models = require('./models.js')
 require('dotenv').config();
-
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 let auth= require('./auth')(app);
-let allowedOrigins = ['http://localhost:8080/',
-  
+let allowedOrigins = ['http://localhost:8080',
+  'http://localhost:1234'
 ]
 
 const passport = require('passport');
@@ -20,13 +20,11 @@ require('./passport');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-console.log('users');
+const CONNECTION_URI = 'mongodb+srv://L33thax420:L33thax420@clusterflix.xakkrlo.mongodb.net/myFlix?retryWrites=true&w=majority'
 
-mongoose.connect(process.env.CONNECTION_URI).then(()=> console.log('connected to MongoDB'))
-.catch(err => console.error('Error connecting to MongoDB' + (err)+ (process.env.CONNECTION_URI)))
-// mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(CONNECTION_URI).then(() => console.log('connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB' + (err) + (CONNECTION_URI)));
 
-app.use(express.json());
 
 app.use(cors({
   origin: (origin, callback)=>{
@@ -103,7 +101,7 @@ check('Email', 'Email does not appear to be valid').isEmail()], async (req, res)
         Users
           .create({
             Username: req.body.Username,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday
           })
@@ -120,69 +118,12 @@ check('Email', 'Email does not appear to be valid').isEmail()], async (req, res)
     });
 });
 
-// const port = process.env.PORT || 8080;
-const port = 8080;
-app.listen(port, '0.0.0.0',() => {
- console.log('Listening on Port ' + port);
+const port = process.env.PORT || 8080;
+// const port = 8080;
+const localHost = '0.0.0.0';
+const host = 'myflix-movienet-6e137990a158.herokuapp.com';
+
+app.listen(port, host,() => {
+ console.log('Listening on Port' + port);
 });
 
-// app.get('/students/:name', (req, res) => { //request parameter (:name) will store inside of req.params
-//     res.json(students.find((student) => //callback res.json then search thru students array
-//       { return student.name === req.params.name })); //object sent back as response
-//   });
-
-// app.post('/students', (req, res) => { //add new student
-//     let newStudent = req.body;
-  
-//     if (!newStudent.name) { //requires student name
-//       const message = 'Missing name in request body';
-//       res.status(400).send(message);
-//     } else {
-//       newStudent.id = uuid.v4();
-//       students.push(newStudent); //adds new student to array
-//       res.status(201).send(newStudent);
-//     }
-//   });
-
-//   app.delete('/students/:id', (req, res) => {
-//     let student = students.find((student) => { return student.id === req.params.id });
-  
-//     if (student) {
-//       students = students.filter((obj) => { return obj.id !== req.params.id });
-//       res.status(201).send('Student ' + req.params.id + ' was deleted.');
-//     }
-//   });
-  
-//   // Update the "grade" of a student by student name/class name
-//   app.put('/students/:name/:class/:grade', (req, res) => {
-//     let student = students.find((student) => { return student.name === req.params.name });
-  
-//     if (student) {
-//       student.classes[req.params.class] = parseInt(req.params.grade);
-//       res.status(201).send('Student ' + req.params.name + ' was assigned a grade of ' + req.params.grade + ' in ' + req.params.class);
-//     } else {
-//       res.status(404).send('Student with the name ' + req.params.name + ' was not found.');
-//     }
-//   });
-  
-//   // Gets the GPA of a student
-//   app.get('/students/:name/gpa', (req, res) => {
-//     let student = students.find((student) => { return student.name === req.params.name });
-  
-//     if (student) {
-//       let classesGrades = Object.values(student.classes); // Object.values() filters out object's keys and keeps the values that are returned as a new array
-//       let sumOfGrades = 0;
-//       classesGrades.forEach(grade => {
-//         sumOfGrades = sumOfGrades + grade;
-//       });
-  
-//       let gpa = sumOfGrades / classesGrades.length;
-//       console.log(sumOfGrades);
-//       console.log(classesGrades.length);
-//       console.log(gpa);
-//       res.status(201).send('' + gpa);
-//       //res.status(201).send(gpa);
-//     } else {
-//       res.status(404).send('Student with the name ' + req.params.name + ' was not found.');
-//     }
-//   });
