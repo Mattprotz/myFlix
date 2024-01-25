@@ -123,7 +123,7 @@ const port = process.env.PORT || 8080;
 const localHost = '0.0.0.0';
 const host = 'myflix-movienet-6e137990a158.herokuapp.com';
 
-app.listen(port, host,() => {
+app.listen(port,() => {
  console.log('Listening on Port' + port);
 });
 
