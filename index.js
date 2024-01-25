@@ -51,6 +51,15 @@ app.get('/movies', async (req, res) => {
       });
 });
 
+app.get('/gracie', async (req, res) => {  
+  Movies.find()  //read all movies
+    .then((movies) => {res.sendFile('/gracie.html')})
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
 //Read data about movie by title 
 app.get('/movies/:title', (req, res) => {
    Movies.findOne({ title: req.params.title })
@@ -62,6 +71,8 @@ app.get('/movies/:title', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
+
+
 
 //Read users
 app.get('/users', passport.authenticate('jwt', {session: false}), async(req, res) => {  
