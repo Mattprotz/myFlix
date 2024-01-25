@@ -2,16 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const cors = require('cors');
-const bcrypt = require('bcrypt');
+app.use(cors());
 const { check, validationResult } = require('express-validator');
 const Models = require('./models.js')
 require('dotenv').config();
-app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 let auth= require('./auth')(app);
 let allowedOrigins = ['http://localhost:8080/',
-  'http://localhost:1234'
+  
 ]
 
 const passport = require('passport');
@@ -20,11 +20,13 @@ require('./passport');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-const CONNECTION_URI = 'mongodb+srv://L33thax420:L33thax420@clusterflix.xakkrlo.mongodb.net/myFlix?retryWrites=true&w=majority'
+console.log('users');
 
-mongoose.connect(CONNECTION_URI).then(() => console.log('connected to MongoDB'))
-  .catch(err => console.error('Error connecting to MongoDB' + (err) + (CONNECTION_URI)));
+mongoose.connect(process.env.CONNECTION_URI).then(()=> console.log('connected to MongoDB'))
+.catch(err => console.error('Error connecting to MongoDB' + (err)+ (process.env.CONNECTION_URI)))
+// mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
+app.use(express.json());
 
 app.use(cors({
   origin: (origin, callback)=>{
@@ -101,7 +103,7 @@ check('Email', 'Email does not appear to be valid').isEmail()], async (req, res)
         Users
           .create({
             Username: req.body.Username,
-            Password: hashedPassword,
+            Password: req.body.Password,
             Email: req.body.Email,
             Birthday: req.body.Birthday
           })
