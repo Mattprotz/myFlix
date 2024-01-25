@@ -52,12 +52,7 @@ app.get('/movies', async (req, res) => {
 });
 
 app.get('/gracie', async (req, res) => {  
-  Movies.find()  //read all movies
-    .then((movies) => {res.sendFile('/gracie.html')})
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
+  res.sendFile('/gracie.html')
 });
 
 //Read data about movie by title 
