@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const Models = require("./models.js");
 const PORT = process.env.PORT || 8080;
-const HOST = "0.0.0.0";
+
 
 require("dotenv").config();
 app.use(express.json());
@@ -152,10 +152,6 @@ app.post(
   }
 );
 
-
-// app.listen(port, HOST, () => {
-//   console.log("Listening on Port" + port);
-// });
 
 app.listen(PORT, () => {
   console.log("Listening on Port" + PORT);
