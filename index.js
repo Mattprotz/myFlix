@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 let auth = require("./auth")(app);
-let allowedOrigins = ["http://localhost:8080", "http://localhost:1234", "https://myflix-movienet-6e137990a158.herokuapp.com/" ];
+let allowedOrigins = ["http://localhost:8080", "http://localhost:1234" ];
 
 const passport = require("passport");
 require("./passport");
@@ -47,13 +47,6 @@ app.use(
     },
   })
 );
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:1234');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
-
 
 app.get("/", (request, response) => {
   //request route
