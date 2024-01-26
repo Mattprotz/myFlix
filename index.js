@@ -1,16 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const cors = require("cors"); //cors
+const cors = require("cors");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const Models = require("./models.js");
 const PORT = process.env.PORT || 8080;
 
 require("dotenv").config();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
 
 let auth = require("./auth")(app);
 let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
