@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const cors = require("cors");
+const cors = require("cors"); //cors
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const Models = require("./models.js");
