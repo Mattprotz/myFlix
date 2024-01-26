@@ -25,7 +25,7 @@ const CONNECTION_URI =
   "mongodb+srv://L33thax420:L33thax420@clusterflix.xakkrlo.mongodb.net/myFlix?retryWrites=true&w=majority";
 
 mongoose
-  .connect(CONNECTION_URI)
+  .connect(process.env.CONNECTION_URI)
   .then(() => console.log("connected to MongoDB"))
   .catch((err) =>
     console.error("Error connecting to MongoDB" + err + CONNECTION_URI)
