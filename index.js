@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 let auth = require("./auth")(app);
-let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
+let allowedOrigins = ["http://localhost:8080", "http://localhost:1234", "https://myflix-movienet-6e137990a158.herokuapp.com/" ];
 
 const passport = require("passport");
 require("./passport");
@@ -133,7 +133,8 @@ app.post(
         } else {
           Users.create({
             Username: req.body.Username,
-            Password: hashedPassword,
+            // Password: hashedPassword,
+            Password: req.body.Password,
             Email: req.body.Email,
             Birthday: req.body.Birthday,
           })
