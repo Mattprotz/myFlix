@@ -10,9 +10,10 @@ const PORT = process.env.PORT || 8080;
 require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 let auth = require("./auth")(app);
-let allowedOrigins = ["http://localhost:8080", "http://localhost:1234/?"];
+let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
 
 const passport = require("passport");
 require("./passport");
