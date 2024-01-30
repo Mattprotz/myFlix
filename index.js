@@ -34,15 +34,17 @@ mongoose
 app.use(
   cors({
     origin: (origin, callback) => {
-      console.log({ origin });
+      console.log("origin first:", origin);
       if (!origin) return callback(null, true);
       if (allowedOrigins.indexOf(origin) === -1) {
+        console.log(`Didnt find ${origin}`);
         //checking if specific origin is not found on allowed origins list
         let message =
           "The CORS policy of this application does not allow access from origin" +
           origin;
         return callback(new Error(message), false);
       }
+      console.log(`found ${origin}`);
       return callback(null, true);
     },
   })
@@ -133,8 +135,8 @@ app.post(
         } else {
           Users.create({
             Username: req.body.Username,
-            // Password: hashedPassword,
-            Password: req.body.Password,
+            Password: hashedPassword,
+            // Password: req.body.Password,
             Email: req.body.Email,
             Birthday: req.body.Birthday,
           })
