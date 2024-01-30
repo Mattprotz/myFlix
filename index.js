@@ -12,9 +12,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 let auth = require("./auth")(app);
-let allowedOrigins = ["http://localhost:8080", "http://localhost:1234" ];
+let allowedOrigins = ["http://localhost:8080", "http://localhost:1234"];
 
 const passport = require("passport");
 require("./passport");
@@ -31,10 +30,11 @@ mongoose
   .catch((err) =>
     console.error("Error connecting to MongoDB" + err + CONNECTION_URI)
   );
-
+//git add . && git commit -m "update" && git push heroku master
 app.use(
   cors({
     origin: (origin, callback) => {
+      console.log({ origin });
       if (!origin) return callback(null, true);
       if (allowedOrigins.indexOf(origin) === -1) {
         //checking if specific origin is not found on allowed origins list
