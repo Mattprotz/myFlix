@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 let auth = require("./auth")(app);
-let allowedOrigins = ["http://localhost:8080", "http://localhost:1234", "https://netfix.netlify.app'" ];
+let allowedOrigins = ["http://localhost:8080", "http://localhost:1234", "https://netfixmovies.netlify.app'" ];
 
 const passport = require("passport");
 require("./passport");
