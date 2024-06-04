@@ -1,9 +1,407 @@
-{"_id":{"$oid":"659c753fa56d33beed90a066"},"title":"Inception","director":{"name":"Christopher Nolan","birthDate":"July 30, 1970"},"genre":"Sci-Fi","releaseYear":2010}
-{"_id":{"$oid":"659c7851a56d33beed90a067"},"title":"The Dark Knight","director":{"name":"Christopher Nolan","birthDate":"July 30, 1970"},"genre":"Action","releaseYear":2008,"Rating":"9/10"}
-{"_id":{"$oid":"659c7bada56d33beed90a068"},"title":"Pulp Fiction","director":{"name":"Quentin Tarantino","birthDate":"March 27, 1963"},"genre":"Crime","releaseYear":1994}
-{"_id":{"$oid":"659c7bc5a56d33beed90a069"},"title":"Reservoir Dogs","director":{"name":"Quentin Tarantino","birthDate":"March 27, 1963"},"genre":"Crime","releaseYear":1992}
-{"_id":{"$oid":"659c7bdba56d33beed90a06a"},"title":"The Shawshank Redemption","director":{"name":"Frank Darabont","birthDate":"January 28, 1959"},"genre":"Drama","releaseYear":1994}
-{"_id":{"$oid":"659c7c32a56d33beed90a06c"},"title":"The Matrix","director":{"name":"The Wachowskis","birthDate":["Lana Wachowski: June 21, 1965","Lilly Wachowski: December 29, 1967"]},"genre":"Sci-Fi","releaseYear":1999}
-{"_id":{"$oid":"659c7c46a56d33beed90a06d"},"title":"Blade Runner","director":{"name":"Ridley Scott","birthDate":"November 30, 1937"},"genre":"Sci-Fi","releaseYear":1982}
-{"_id":{"$oid":"659c7c51a56d33beed90a06e"},"title":"The Godfather","director":{"name":"Francis Ford Coppola","birthDate":"April 7, 1939"},"genre":"Crime","releaseYear":1972}
-{"_id":{"$oid":"659c7c5ea56d33beed90a06f"},"title":"The Departed","director":{"name":"Martin Scorsese","birthDate":"November 17, 1942"},"genre":"Crime","releaseYear":2006}
+[
+    {
+      "_id": {"$oid": "659c753fa56d33beed90a066"},
+      "title": "Inception",
+      "director": {"name": "Christopher Nolan", "birthDate": "July 30, 1970"},
+      "genre": "Sci-Fi",
+      "releaseYear": 2010,
+      "image" : ""
+    },
+    {
+      "_id": {"$oid": "659c7851a56d33beed90a067"},
+      "title": "The Dark Knight",
+      "director": {"name": "Christopher Nolan", "birthDate": "July 30, 1970"},
+      "genre": "Action",
+      "releaseYear": 2008,
+      "Rating": "9/10"
+    },
+    {
+      "_id": {"$oid": "659c7bada56d33beed90a068"},
+      "title": "Pulp Fiction",
+      "director": {"name": "Quentin Tarantino", "birthDate": "March 27, 1963"},
+      "genre": "Crime",
+      "releaseYear": 1994
+    },
+    {
+      "_id": {"$oid": "659c7bc5a56d33beed90a069"},
+      "title": "Reservoir Dogs",
+      "director": {"name": "Quentin Tarantino", "birthDate": "March 27, 1963"},
+      "genre": "Crime",
+      "releaseYear": 1992
+    },
+    {
+      "_id": {"$oid": "659c7bdba56d33beed90a06a"},
+      "title": "The Shawshank Redemption",
+      "director": {"name": "Frank Darabont", "birthDate": "January 28, 1959"},
+      "genre": "Drama",
+      "releaseYear": 1994
+    },
+    {
+      "_id": {"$oid": "659c7c32a56d33beed90a06c"},
+      "title": "The Matrix",
+      "director": {
+        "name": "The Wachowskis",
+        "birthDate": ["Lana Wachowski: June 21, 1965", "Lilly Wachowski: December 29, 1967"]
+      },
+      "genre": "Sci-Fi",
+      "releaseYear": 1999
+    },
+    {
+      "_id": {"$oid": "659c7c46a56d33beed90a06d"},
+      "title": "Blade Runner",
+      "director": {"name": "Ridley Scott", "birthDate": "November 30, 1937"},
+      "genre": "Sci-Fi",
+      "releaseYear": 1982
+    },
+    {
+      "_id": {"$oid": "659c7c51a56d33beed90a06e"},
+      "title": "The Godfather",
+      "director": {"name": "Francis Ford Coppola", "birthDate": "April 7, 1939"},
+      "genre": "Crime",
+      "releaseYear": 1972
+    },
+    {
+      "_id": {"$oid": "659c7c5ea56d33beed90a06f"},
+      "title": "The Departed",
+      "director": {"name": "Martin Scorsese", "birthDate": "November 17, 1942"},
+      "genre": "Crime",
+      "releaseYear": 2006
+    },
+    {
+      "_id": {"$oid": "659c7c68a56d33beed90a070"},
+      "title": "Fight Club",
+      "director": {"name": "David Fincher", "birthDate": "August 28, 1962"},
+      "genre": "Drama",
+      "releaseYear": 1999
+    },
+    {
+      "_id": {"$oid": "659c7c73a56d33beed90a071"},
+      "title": "Forrest Gump",
+      "director": {"name": "Robert Zemeckis", "birthDate": "May 14, 1952"},
+      "genre": "Drama",
+      "releaseYear": 1994
+    },
+    {
+      "_id": {"$oid": "659c7c7da56d33beed90a072"},
+      "title": "Goodfellas",
+      "director": {"name": "Martin Scorsese", "birthDate": "November 17, 1942"},
+      "genre": "Crime",
+      "releaseYear": 1990
+    },
+    {
+      "_id": {"$oid": "659c7c88a56d33beed90a073"},
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "director": {"name": "Peter Jackson", "birthDate": "October 31, 1961"},
+      "genre": "Fantasy",
+      "releaseYear": 2001
+    },
+    {
+      "_id": {"$oid": "659c7c93a56d33beed90a074"},
+      "title": "The Lord of the Rings: The Two Towers",
+      "director": {"name": "Peter Jackson", "birthDate": "October 31, 1961"},
+      "genre": "Fantasy",
+      "releaseYear": 2002
+    },
+    {
+      "_id": {"$oid": "659c7c9ea56d33beed90a075"},
+      "title": "The Lord of the Rings: The Return of the King",
+      "director": {"name": "Peter Jackson", "birthDate": "October 31, 1961"},
+      "genre": "Fantasy",
+      "releaseYear": 2003
+    },
+    {
+      "_id": {"$oid": "659c7ca8a56d33beed90a076"},
+      "title": "The Silence of the Lambs",
+      "director": {"name": "Jonathan Demme", "birthDate": "February 22, 1944"},
+      "genre": "Thriller",
+      "releaseYear": 1991
+    },
+    {
+      "_id": {"$oid": "659c7cb3a56d33beed90a077"},
+      "title": "Schindler's List",
+      "director": {"name": "Steven Spielberg", "birthDate": "December 18, 1946"},
+      "genre": "Biography",
+      "releaseYear": 1993
+    },
+    {
+      "_id": {"$oid": "659c7cbea56d33beed90a078"},
+      "title": "The Green Mile",
+      "director": {"name": "Frank Darabont", "birthDate": "January 28, 1959"},
+      "genre": "Drama",
+      "releaseYear": 1999
+    },
+    {
+      "_id": {"$oid": "659c7cca56d33beed90a079"},
+      "title": "The Usual Suspects",
+      "director": {"name": "Bryan Singer", "birthDate": "September 17, 1965"},
+      "genre": "Crime",
+      "releaseYear": 1995
+    },
+    {
+      "_id": {"$oid": "659c7cd5a56d33beed90a07a"},
+      "title": "Saving Private Ryan",
+      "director": {"name": "Steven Spielberg", "birthDate": "December 18, 1946"},
+      "genre": "Drama",
+      "releaseYear": 1998
+    },
+    {
+      "_id": {"$oid": "659c7ce0a56d33beed90a07b"},
+      "title": "Se7en",
+      "director": {"name": "David Fincher", "birthDate": "August 28, 1962"},
+      "genre": "Crime",
+      "releaseYear": 1995
+    },
+    {
+      "_id": {"$oid": "659c7ceaa56d33beed90a07c"},
+      "title": "The Sixth Sense",
+      "director": {"name": "M. Night Shyamalan", "birthDate": "August 6, 1970"},
+      "genre": "Thriller",
+      "releaseYear": 1999
+    },
+    {
+      "_id": {"$oid": "659c7cf5a56d33beed90a07d"},
+      "title": "The Shining",
+      "director": {"name": "Stanley Kubrick", "birthDate": "July 26, 1928"},
+      "genre": "Horror",
+      "releaseYear": 1980
+    },
+    {
+      "_id": {"$oid": "659c7d00a56d33beed90a07e"},
+      "title": "The Godfather: Part II",
+      "director": {"name": "Francis Ford Coppola", "birthDate": "April 7, 1939"},
+      "genre": "Crime",
+      "releaseYear": 1974
+    },
+    {
+      "_id": {"$oid": "659c7d0aa56d33beed90a07f"},
+      "title": "A Clockwork Orange",
+      "director": {"name": "Stanley Kubrick", "birthDate": "July 26, 1928"},
+      "genre": "Drama",
+      "releaseYear": 1971
+    },
+    {
+      "_id": {"$oid": "659c7d15a56d33beed90a080"},
+      "title": "The Prestige",
+      "director": {"name": "Christopher Nolan", "birthDate": "July 30, 1970"},
+      "genre": "Drama",
+      "releaseYear": 2006
+    },
+    {
+      "_id": {"$oid": "659c7d1fa56d33beed90a081"},
+      "title": "Interstellar",
+      "director": {"name": "Christopher Nolan", "birthDate": "July 30, 1970"},
+      "genre": "Sci-Fi",
+      "releaseYear": 2014
+    },
+    {
+      "_id": {"$oid": "659c7d2aa56d33beed90a082"},
+      "title": "Gladiator",
+      "director": {"name": "Ridley Scott", "birthDate": "November 30, 1937"},
+      "genre": "Action",
+      "releaseYear": 2000
+    },
+    {
+      "_id": {"$oid": "659c7d35a56d33beed90a083"},
+      "title": "American History X",
+      "director": {"name": "Tony Kaye", "birthDate": "July 8, 1952"},
+      "genre": "Drama",
+      "releaseYear": 1998
+    },
+    {
+      "_id": {"$oid": "659c7d3fa56d33beed90a084"},
+      "title": "The Lion King",
+      "director": {"name": "Roger Allers", "birthDate": "June 28, 1949"},
+      "genre": "Animation",
+      "releaseYear": 1994
+    },
+    {
+      "_id": {"$oid": "659c7d49a56d33beed90a085"},
+      "title": "Toy Story",
+      "director": {"name": "John Lasseter", "birthDate": "January 12, 1957"},
+      "genre": "Animation",
+      "releaseYear": 1995
+    },
+    {
+      "_id": {"$oid": "659c7d54a56d33beed90a086"},
+      "title": "Titanic",
+      "director": {"name": "James Cameron", "birthDate": "August 16, 1954"},
+      "genre": "Romance",
+      "releaseYear": 1997
+    },
+    {
+      "_id": {"$oid": "659c7d5fa56d33beed90a087"},
+      "title": "The Social Network",
+      "director": {"name": "David Fincher", "birthDate": "August 28, 1962"},
+      "genre": "Biography",
+      "releaseYear": 2010
+    },
+    {
+      "_id": {"$oid": "659c7d68a56d33beed90a088"},
+      "title": "The Grand Budapest Hotel",
+      "director": {"name": "Wes Anderson", "birthDate": "May 1, 1969"},
+      "genre": "Comedy",
+      "releaseYear": 2014
+    },
+    {
+      "_id": {"$oid": "659c7d73a56d33beed90a089"},
+      "title": "The Big Lebowski",
+      "director": {"name": "Joel Coen", "birthDate": "November 29, 1954"},
+      "genre": "Comedy",
+      "releaseYear": 1998
+    },
+    {
+      "_id": {"$oid": "659c7d7da56d33beed90a08a"},
+      "title": "Inglourious Basterds",
+      "director": {"name": "Quentin Tarantino", "birthDate": "March 27, 1963"},
+      "genre": "War",
+      "releaseYear": 2009
+    },
+    {
+      "_id": {"$oid": "659c7d87a56d33beed90a08b"},
+      "title": "The Pianist",
+      "director": {"name": "Roman Polanski", "birthDate": "August 18, 1933"},
+      "genre": "Biography",
+      "releaseYear": 2002
+    },
+    {
+      "_id": {"$oid": "659c7d91a56d33beed90a08c"},
+      "title": "City of God",
+      "director": {"name": "Fernando Meirelles", "birthDate": "November 9, 1955"},
+      "genre": "Crime",
+      "releaseYear": 2002
+    },
+    {
+      "_id": {"$oid": "659c7d9ba56d33beed90a08d"},
+      "title": "Casablanca",
+      "director": {"name": "Michael Curtiz", "birthDate": "December 24, 1886"},
+      "genre": "Romance",
+      "releaseYear": 1942
+    },
+    {
+      "_id": {"$oid": "659c7da6a56d33beed90a08e"},
+      "title": "The Truman Show",
+      "director": {"name": "Peter Weir", "birthDate": "August 21, 1944"},
+      "genre": "Drama",
+      "releaseYear": 1998
+    },
+    {
+      "_id": {"$oid": "659c7db0a56d33beed90a08f"},
+      "title": "Memento",
+      "director": {"name": "Christopher Nolan", "birthDate": "July 30, 1970"},
+      "genre": "Mystery",
+      "releaseYear": 2000
+    },
+    {
+      "_id": {"$oid": "659c7dbba56d33beed90a090"},
+      "title": "The Breakfast Club",
+      "director": {"name": "John Hughes", "birthDate": "February 18, 1950"},
+      "genre": "Comedy",
+      "releaseYear": 1985
+    },
+    {
+      "_id": {"$oid": "659c7dc5a56d33beed90a091"},
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "director": {"name": "Michel Gondry", "birthDate": "May 8, 1963"},
+      "genre": "Drama",
+      "releaseYear": 2004
+    },
+    {
+      "_id": {"$oid": "659c7dd0a56d33beed90a092"},
+      "title": "The Truman Show",
+      "director": {"name": "Peter Weir", "birthDate": "August 21, 1944"},
+      "genre": "Drama",
+      "releaseYear": 1998
+    },
+    {
+      "_id": {"$oid": "659c7ddb48ae28b14684e267"},
+      "title": "The Dark Knight Rises",
+      "director": {"name": "Christopher Nolan", "birthDate": "July 30, 1970"},
+      "genre": "Action",
+      "releaseYear": 2012
+    },
+    {
+      "_id": {"$oid": "659c7de5a56d33beed90a093"},
+      "title": "The Social Network",
+      "director": {"name": "David Fincher", "birthDate": "August 28, 1962"},
+      "genre": "Biography",
+      "releaseYear": 2010
+    },
+    {
+      "_id": {"$oid": "659c7df0a56d33beed90a094"},
+      "title": "La La Land",
+      "director": {"name": "Damien Chazelle", "birthDate": "January 19, 1985"},
+      "genre": "Musical",
+      "releaseYear": 2016
+    },
+    {
+      "_id": {"$oid": "659c7dfaa56d33beed90a095"},
+      "title": "Whiplash",
+      "director": {"name": "Damien Chazelle", "birthDate": "January 19, 1985"},
+      "genre": "Drama",
+      "releaseYear": 2014
+    },
+    {
+      "_id": {"$oid": "659c7e05a56d33beed90a096"},
+      "title": "The Revenant",
+      "director": {"name": "Alejandro G. Iñárritu", "birthDate": "August 15, 1963"},
+      "genre": "Adventure",
+      "releaseYear": 2015
+    },
+    {
+      "_id": {"$oid": "659c7e10a56d33beed90a097"},
+      "title": "Birdman",
+      "director": {"name": "Alejandro G. Iñárritu", "birthDate": "August 15, 1963"},
+      "genre": "Drama",
+      "releaseYear": 2014
+    },
+    {
+      "_id": {"$oid": "659c7e1aa56d33beed90a098"},
+      "title": "No Country for Old Men",
+      "director": {"name": "Joel Coen", "birthDate": "November 29, 1954"},
+      "genre": "Crime",
+      "releaseYear": 2007
+    },
+    {
+      "_id": {"$oid": "659c7e25a56d33beed90a099"},
+      "title": "Fargo",
+      "director": {"name": "Joel Coen", "birthDate": "November 29, 1954"},
+      "genre": "Crime",
+      "releaseYear": 1996
+    },
+    {
+      "_id": {"$oid": "659c7e2fa56d33beed90a09a"},
+      "title": "The Departed",
+      "director": {"name": "Martin Scorsese", "birthDate": "November 17, 1942"},
+      "genre": "Crime",
+      "releaseYear": 2006
+    },
+    {
+      "_id": {"$oid": "659c7e39a56d33beed90a09b"},
+      "title": "Raging Bull",
+      "director": {"name": "Martin Scorsese", "birthDate": "November 17, 1942"},
+      "genre": "Biography",
+      "releaseYear": 1980
+    },
+    {
+      "_id": {"$oid": "659c7e43a56d33beed90a09c"},
+      "title": "Taxi Driver",
+      "director": {"name": "Martin Scorsese", "birthDate": "November 17, 1942"},
+      "genre": "Crime",
+      "releaseYear": 1976
+    },
+    {
+      "_id": {"$oid": "659c7e4da56d33beed90a09d"},
+      "title": "Shutter Island",
+      "director": {"name": "Martin Scorsese", "birthDate": "November 17, 1942"},
+      "genre": "Mystery",
+      "releaseYear": 2010
+    },
+    {
+      "_id": {"$oid": "659c7e57a56d33beed90a09e"},
+      "title": "The Wolf of Wall Street",
+      "director": {"name": "Martin Scorsese", "birthDate": "November 17, 1942"},
+      "genre": "Biography",
+      "releaseYear": 2013
+    }
+  ]
+  
