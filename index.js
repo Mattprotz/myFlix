@@ -7,14 +7,15 @@ const { check, validationResult } = require("express-validator");
 const Models = require("./models.js");
 const PORT = process.env.PORT || 8080;
 
-require("dotenv").config();
+
 app.use(cors());
+
+require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors());
 let auth= require('./auth')(app);
-let allowedOrigins = ['http://localhost:8080/','http://localhost:4200/welcome' ]
+let allowedOrigins = ['http://localhost:8080/','http://localhost:4200' ]
 
 const passport = require("passport");
 require("./passport");
@@ -22,7 +23,7 @@ require("./passport");
 const Movies = Models.Movie;
 const Users = Models.User;
 
-const CONNECTION_URI =
+const CONNECTION_URI = process.env.CONNECTION_URI ||
   "mongodb+srv://L33thax420:L33thax420@clusterflix.xakkrlo.mongodb.net/myFlix?retryWrites=true&w=majority";
 
 mongoose
