@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 let auth= require('./auth')(app);
-let allowedOrigins = ['http://localhost:8080/','http://localhost:4200', 'http://localhost:1234' ]
+let allowedOrigins = ['http://localhost:8080/','http://localhost:4200', 'http://localhost:1234', 'https://mattprotz.github.io/myFlix-client/' ]
 
 const passport = require("passport");
 require("./passport");
