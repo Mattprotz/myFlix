@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 let auth= require('./auth')(app);
-let allowedOrigins = ['http://localhost:8080/','http://localhost:4200', 'http://localhost:1234', 'https://mattprotz.github.io/myFlix-client/' ]
+let allowedOrigins = ['http://localhost:8080/','http://localhost:4200', 'http://localhost:1234', 'https://mattprotz.github.io/myFlix-client/', 'https://netfixmovies.netlify.app' ]
 
 const passport = require("passport");
 require("./passport");
@@ -133,7 +133,8 @@ app.post(
         if (user) {
           return res
             .status(400)
-            .send(req.body.Username + ":" + "already exists");
+            .json({})
+            // .send(req.body.Username + ":" + "already exists");
         } else {
           Users.create({
             Username: req.body.Username,
@@ -147,13 +148,17 @@ app.post(
             })
             .catch((error) => {
               console.error(error);
-              res.status(500).send("Error: " + error);
+              // res.status(500).send("Error: " + error);
+              // res.status(500).send("Error: " + error);
+              // res.status(500).send("Error: " + error);
+              res.json({})
             });
         }
       })
       .catch((error) => {
         console.error(error);
-        res.status(500).send("Error: " + error);
+        res.json({})
+        // res.status(500).send("Error: " + error);
       });
   }
 );
